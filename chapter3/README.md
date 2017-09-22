@@ -32,10 +32,10 @@ try(FileInputStream inputStream = new FileInputStream(“foo.txt”)) {
 Начнем с простого примера: синхронное чтение файла с использованием Node.js:
 
 ```javascript
-const fs = require(‘fs’)
+const fs = require('fs')
 let content
 try {
-	content = fs.readFileSync(‘file.md’, ‘utf-8’)
+	content = fs.readFileSync('file.md', 'utf-8')
 } catch (ex) {
 	console.log(ex)
 }
@@ -64,8 +64,8 @@ numbers.filter(isBiggerThanTwo)
 В основе Node.js лежит принцип «первым аргументом в колбеке должна быть ошибка» - его придерживаются базовые модули, а также большинство модулей найденных в NPM.
 
 ```javascript
-const fs = require(‘fs’)
-fs.readFile(‘file.md’, ‘utf-8’, function (err, content) {
+const fs = require('fs')
+fs.readFile('file.md', 'utf-8', function (err, content) {
 	if (err) {
 		return console.log(err)
 	}
@@ -82,11 +82,11 @@ fs.readFile(‘file.md’, ‘utf-8’, function (err, content) {
 Давайте немного изменим этот файл, чтобы увидеть, как это работает на практике:
 
 ```javascript
-const fs = require(‘fs’)
+const fs = require('fs')
 
-console.log(‘start reading a file...’)
+console.log('start reading a file...')
 
-fs.readFile(‘file.md’, ‘utf-8’, function (err, content) {
+fs.readFile('file.md', 'utf-8', function (err, content) {
 	if (err) {
 		console.log(‘error happened during reading the file’)
 		return console.log(err)
@@ -94,7 +94,7 @@ fs.readFile(‘file.md’, ‘utf-8’, function (err, content) {
 	console.log(content)
 })
 
-console.log(‘end of the file’)
+console.log('end of the file')
 ```
 
 Результатом выполнения этого кода будет:
@@ -139,7 +139,7 @@ Async.js помогает структурировать ваши приложе
 Следующий фрагмент перебирает три файла и выводит системную информацию по каждому:
 
 ```javascript
-async.parallel([‘file1’, ‘file2’, ‘file3’], fs.stat,
+async.parallel(['file1', 'file2', 'file3'], fs.stat,
 function (err, results) {
 	// results is now an array of stats for each file
 })
@@ -166,9 +166,9 @@ function stats (file) {
 }
 
 Promise.all([
-	stats(‘file1’),
-	stats(‘file2’),
-	stats(‘file3’)
+	stats('file1'),
+	stats('file2'),
+	stats('file3')
 ])
 .then((data) => console.log(data))
 .catch((err) => console.log(err))
