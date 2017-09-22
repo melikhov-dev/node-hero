@@ -8,8 +8,8 @@
 
 ```java
 try(FileInputStream inputStream = new FileInputStream(“foo.txt”)) {
-	Session IOUtils;
-	String  fileContent = IOUtils.toString(inputStream); 
+    Session IOUtils;
+    String  fileContent = IOUtils.toString(inputStream); 
 }
 ```
 
@@ -35,9 +35,9 @@ try(FileInputStream inputStream = new FileInputStream(“foo.txt”)) {
 const fs = require('fs')
 let content
 try {
-	content = fs.readFileSync('file.md', 'utf-8')
+    content = fs.readFileSync('file.md', 'utf-8')
 } catch (ex) {
-	console.log(ex)
+    console.log(ex)
 }
 console.log(content)
 ```
@@ -53,7 +53,7 @@ console.log(content)
 ```javascript
 const numbers = [2,4,1,5,4]
 function isBiggerThanTwo (num) {
-	return num > 2
+    return num > 2
 }
 numbers.filter(isBiggerThanTwo)
 ```
@@ -66,11 +66,11 @@ numbers.filter(isBiggerThanTwo)
 ```javascript
 const fs = require('fs')
 fs.readFile('file.md', 'utf-8', function (err, content) {
-	if (err) {
-		return console.log(err)
-	}
+    if (err) {
+        return console.log(err)
+    }
 	
-	console.log(content)
+    console.log(content)
 })
 ```
 
@@ -87,11 +87,11 @@ const fs = require('fs')
 console.log('start reading a file...')
 
 fs.readFile('file.md', 'utf-8', function (err, content) {
-	if (err) {
-		console.log(‘error happened during reading the file’)
-		return console.log(err)
-	}
-	console.log(content)
+    if (err) {
+        console.log(‘error happened during reading the file’)
+        return console.log(err)
+    }
+    console.log(content)
 })
 
 console.log('end of the file')
@@ -139,9 +139,10 @@ Async.js помогает структурировать ваши приложе
 Следующий фрагмент перебирает три файла и выводит системную информацию по каждому:
 
 ```javascript
-async.parallel(['file1', 'file2', 'file3'], fs.stat,
-function (err, results) {
-	// results is now an array of stats for each file
+async.parallel(['file1', 'file2', 'file3'],
+    fs.stat,
+    function (err, results) {
+        // results is now an array of stats for each file
 })
 ```
 
@@ -155,20 +156,20 @@ function (err, results) {
 
 ```javascript
 function stats (file) {
-  return new Promise((resolve, reject) => {
-		fs.stat(file, (err, data) => {
-			if (err) {
-				return reject (err)
-			}
-			resolve(data)
-		})
-	})
+    return new Promise((resolve, reject) => {
+        fs.stat(file, (err, data) => {
+            if (err) {
+                return reject (err)
+            }
+            resolve(data)
+        })
+    })
 }
 
 Promise.all([
-	stats('file1'),
-	stats('file2'),
-	stats('file3')
+    stats('file1'),
+    stats('file2'),
+    stats('file3')
 ])
 .then((data) => console.log(data))
 .catch((err) => console.log(err))
