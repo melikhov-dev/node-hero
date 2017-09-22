@@ -49,7 +49,7 @@ npm install lodash --save
 ```javascript
 
 “dependencies”: {
-	“lodash”: “4.6.1”
+    “lodash”: “4.6.1”
 }
 ```
 
@@ -89,9 +89,9 @@ NPM скрипты — очень мощная концепция, с их по�
 
 ```javascript
 “scripts”: {
-	“start”: “node index.js”,
-	“test”: “mocha test”,
-	“your-custom-script”: “echo npm”
+    “start”: “node index.js”,
+    “test”: “mocha test”,
+    “your-custom-script”: “echo npm”
 }
 ```
 
@@ -120,7 +120,7 @@ npm install @myorg/mypackage --save-dev
 
 ```javascript
 “dependencies”: {
-	“@myorg/mypackage”: “^1.0.0”
+    “@myorg/mypackage”: “^1.0.0”
 }
 ```
 
