@@ -215,13 +215,13 @@ app.get(‘/’, (request, response) => {
 
 Как только вы сделаете запрос по этому адресу, вы получите что-то вроде этого:
 
-```javascript
+```html
 <html>
     <head>
         <title>Express handlebars</title>
     </head>
     <body>
-        <h2>Hello John<h2>
+        <h2>Hello John</h2>
     </body>
 </html>
 ```
