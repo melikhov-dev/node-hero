@@ -130,15 +130,15 @@ console.log(‘hello from Node.js’)
 ```javascript
 // package.json 
 {
-	“name”: “@risingstack/node-hero”,
-	“version”: “1.0.0”,
-	“description”: “”,
-	“main”: “index.js”,
-	“scripts”: {
-		“test”: “echo \”Error: no test speci ed\” && exit 1”, 
-		“start”: “node index.js”
-	},
-	“author”: “”, “license”: “ISC”
+  “name”: “@risingstack/node-hero”,
+  “version”: “1.0.0”,
+  “description”: “”,
+  “main”: “index.js”,
+  “scripts”: {
+    “test”: “echo \”Error: no test speci ed\” && exit 1”, 
+    “start”: “node index.js”
+  },
+  “author”: “”, “license”: “ISC”
 }
 ```
 
@@ -159,10 +159,10 @@ require(‘./app/index’)
 // app/index.js
 const calc = require(‘./calc’)
 const numbersToAdd = [
-	3,
-	4,
-	10,
-	2
+    3,
+    4,
+    10,
+    2
 ]
 
 const result = calc.sum(numbersToAdd)
@@ -174,9 +174,9 @@ console.log(`The result is: ${result}`)
 ```javascript
 // app/calc.js
 function sum (arr) {
-	return arr.reduce(function(a, b) {
-		return a + b
-	}, 0)
+    return arr.reduce(function(a, b) {
+        return a + b
+    }, 0)
 }
 
 module.exports.sum = sum
