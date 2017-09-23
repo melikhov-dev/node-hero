@@ -51,7 +51,7 @@ $ node index.js
 
 ## Express
 
-> Быстрый, гибкий, минималистичный веб-фреймворк для Node.js — [http://expressjs.com/](http:// expressjs.com/)
+> Быстрый, гибкий, минималистичный веб-фреймворк для Node.js — [http://expressjs.com/](http://expressjs.com/)
 
 Добавление Express в ваш проект - это просто установка через NPM:
 
