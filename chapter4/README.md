@@ -226,7 +226,7 @@ app.get(‘/’, (request, response) => {
 </html>
 ```
 
-Это всего лишь верхушка айсберга — чтобы узнать, как добавить больше шаблонов (и даже частичных), обратитесь к официальной документации (express-handlebars)[https://www.npmjs.com/package/express-handlebars].
+Это всего лишь верхушка айсберга — чтобы узнать, как добавить больше шаблонов (и даже частичных), обратитесь к официальной документации [express-handlebars](https://www.npmjs.com/package/express-handlebars).
 
 ## Отладка Express
 
