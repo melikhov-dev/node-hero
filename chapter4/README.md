@@ -51,7 +51,7 @@ $ node index.js
 
 ## Express
 
-> Быстрый, гибкий, минималистичный веб-фреймворк для Node.js — [http://expressjs.com/](http:// expressjs.com/)
+> Быстрый, гибкий, минималистичный веб-фреймворк для Node.js — [http://expressjs.com/](http://expressjs.com/)
 
 Добавление Express в ваш проект - это просто установка через NPM:
 
@@ -226,7 +226,7 @@ app.get(‘/’, (request, response) => {
 </html>
 ```
 
-Это всего лишь верхушка айсберга — чтобы узнать, как добавить больше шаблонов (и даже частичных), обратитесь к официальной документации (express-handlebars)[https://www.npmjs.com/package/express-handlebars].
+Это всего лишь верхушка айсберга — чтобы узнать, как добавить больше шаблонов (и даже частичных), обратитесь к официальной документации [express-handlebars](https://www.npmjs.com/package/express-handlebars).
 
 ## Отладка Express
 
