@@ -14,7 +14,8 @@
 const users = []
 app.post(‘/users’, function (req, res) {
   // извлекаем данные пользователя из тела запроса
-  const user = req.body users.push({
+  const user = req.body
+  users.push({
     name: user.name,
     age: user.age
   })
