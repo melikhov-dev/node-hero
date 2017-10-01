@@ -70,7 +70,8 @@ module.exports = {
 ```
 .
 ├── test
-|   └── setup.spec.js ├── product
+|   └── setup.spec.js
+├── product
 |   ├── index.js
 |   ├── product.js
 |   ├── product.spec.js
