@@ -223,7 +223,7 @@ describe('The webpage module', function () {
 * покрытие **ветвлений**,
 * и покрытие **функций**.
 
-В RisingStack мы используем (istanbul)[https://github.com/gotwarlost/istanbul] для анализа покрытия кода. Вы должны добавить следующий скрипт к вашему `package.json`, чтобы использовать `istanbul` с `mocha`:
+В RisingStack мы используем [istanbul](https://github.com/gotwarlost/istanbul) для анализа покрытия кода. Вы должны добавить следующий скрипт к вашему `package.json`, чтобы использовать `istanbul` с `mocha`:
 
 ```
 istanbul cover _mocha $(find ./lib -name \"*.spec.js\" -not -path \"./node_modules/*\")
