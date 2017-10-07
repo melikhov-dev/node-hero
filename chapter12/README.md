@@ -58,7 +58,7 @@ git push heroku master
 
 Чтобы опробовать работу с дополнениями, установите [Trace](https://trace.risingstack.com/), наше решение для мониторинга Node.js. Чтобы сделать это, найдите **Add-ons** на странице своего приложения и начните вводить Trace, затем кликните на ссылку для установки. Легко, правда?
 
-![](NodeHeroEbook-TheComplete-018.png)
+![](NodeHeroEbook-TheComplete-019.png)
 
 *(Чтобы закончить интеграцию с Trace, следуйте [нашей инструкции](https://trace-docs.risingstack.com/docs/heroku))*
 
