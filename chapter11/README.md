@@ -157,9 +157,9 @@ nsp check
 
 Если вы хотите больше узнать о безопасности Node.js, я могу порекомендовать эти статьи:
 
-* [Node.jsSecurityTips](https://blog.risingstack.com/node-js-security-tips/)
-* [OWASP’sTopTenCheatSheet](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)
-* [Node.jssecuritychecklist](https://blog.risingstack.com/node-js-security-checklist/)
+* [Node.js Security Tips](https://blog.risingstack.com/node-js-security-tips/)
+* [OWASP’s Top Ten Cheat Sheet](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)
+* [Node.js security checklist](https://blog.risingstack.com/node-js-security-checklist/)
 
 ---
 
