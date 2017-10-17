@@ -1,6 +1,6 @@
 # МОДУЛЬНОЕ ТЕСТИРОВАНИЕ
 
-В этой главе вы узнаете, что такое модульное тестировае (*или юнит-тестирование*) в Node.js, и как правильно тестировать ваши приложения.
+В этой главе вы узнаете, что такое модульное тестирование (*или юнит-тестирование*) в Node.js, и как правильно тестировать ваши приложения.
 
 ## Тестирование Node.js-приложений
 
@@ -54,7 +54,7 @@
 ```javascript
 it('calls subscribers on publish', function () {
     var callback = sinon.spy()
-    PubSub.subscribe(‘message’, callback)
+    PubSub.subscribe('message', callback)
     
     PubSub.publishSync('message')
     assertTrue(callback.called)
@@ -67,7 +67,7 @@ it('calls subscribers on publish', function () {
 Стабы *(или заглушки)* похожи на шпионов, но они заменяют целевую функцию. Вы можете использовать заглушки для управления поведением метода, чтобы форсировать какие-то события в коде (например, выброс ошибки) или предотвратить вызовы внешних ресурсов (таких как HTTP API).
 
 ```javascript
-it(‘calls all subscribers, even if there are exceptions’, function (){
+it('calls all subscribers, even if there are exceptions', function (){
     var message = 'an example message'
     var error = 'an example error message'
     var stub = sinon.stub().throws()
@@ -92,18 +92,18 @@ it(‘calls all subscribers, even if there are exceptions’, function (){
 Моки — это поддельные методы с заранее запрограммированным поведением и соглашениями.
 
 ```javascript
-it(‘calls all subscribers when exceptions happen’, function () {
+it('calls all subscribers when exceptions happen', function () {
     var myAPI = {
         method: function () {}
     }
 
     var spy = sinon.spy()
     var mock = sinon.mock(myAPI)
-    mock.expects(“method”).once().throws()
+    mock.expects("method").once().throws()
 
-    PubSub.subscribe(“message”, myAPI.method)
-    PubSub.subscribe(“message”, spy)
-    PubSub.publishSync(“message”, unde ned)
+    PubSub.subscribe("message", myAPI.method)
+    PubSub.subscribe("message", spy)
+    PubSub.publishSync("message", undefined)
 
     mock.verify()
     assert(spy.calledOnce)
@@ -137,7 +137,7 @@ function getWebpage (url) {
 }
 
 function writeFile (fileContent) {
-    let  lePath = ‘page’
+    let  lePath = 'page'
     return new Promise (function (resolve, reject) {
         fs.writeFile(filePath, fileContent, function (err) {
             if (err) {
@@ -153,14 +153,14 @@ module.exports = {
 }
 ```
 
-Этот модуль делает одну вещь: он сохраняет веб-страницу (основываясь на переданном URL) в файл на локальном компьютере. Чтобы протестировать этот модуль, мы должны застабить как модуль `fs`, так и модуль `request`.
+Этот модуль делает одну вещь: он сохраняет веб-страницу (основываясь на переданном URL) в файл на локальном компьютере. Чтобы протестировать этот модуль, мы должны «застабить» как модуль `fs`, так и модуль `request`.
 
 Прежде чем начинать писать модульные тесты, в RisingStack обычно мы добавляем файл `test-setup.spec.js` для создания базовой настройки тестов, например создания песочниц Sinon. Это избавит вас от написания `sinon.sandbox.create()` и `sinon.sandbox.restore()` после каждого теста.
 
 ```javascript
 // test-setup.spec.js
-const sinon = require(‘sinon’)
-const chai = require(‘chai’)
+const sinon = require('sinon')
+const chai = require('chai')
 
 beforeEach(function () {
     this.sandbox = sinon.sandbox.create()
@@ -205,7 +205,7 @@ describe('The webpage module', function () {
         
         expect(writeFileStub).to.be.calledWith()
         expect(requestStub).to.be.calledWith(url)
-        expect(result).to.eql(‘page’)
+        expect(result).to.eql('page')
     })
 })
 ```
