@@ -4,7 +4,7 @@
 
 ## Хранение данных в глобальной переменной
 
-Раздача статических страниц пользователям (как это делать вы узнали в предыдущей главе) может быть подходящим вариантом для лендингов или для личных блогов. Однако, если вы хотите отдавать персонализированный контент, вам придётся где-то хранить данные.
+Раздача статических страниц пользователям (как это делать вы узнали в предыдущей главе) может быть подходящим вариантом для лэндингов или для личных блогов. Однако, если вы хотите отдавать персонализированный контент, вам придётся где-то хранить данные.
 
 Возьмем простой пример: регистрация пользователя. Вы можете отдавать пользовательский контент для отдельных пользователей или сделать его доступным для них только после идентификации.
 
@@ -12,21 +12,21 @@
 
 ```javascript
 const users = []
-app.post(‘/users’, function (req, res) {
+app.post('/users', function (req, res) {
   // извлекаем данные пользователя из тела запроса
   const user = req.body
   users.push({
     name: user.name,
     age: user.age
   })
-  res.send(‘successfully registered’)
+  res.send('successfully registered')
 })
 ```
 
 Таким образом, вы можете хранить пользователей в глобальной переменной, которая будет храниться в памяти в течение всего срока жизни вашего приложения.
 
 Использование этого метода может быть проблематичным по нескольким причинам:
-• оперативая память дорогая,
+• оперативная память дорогая,
 • память очищается каждый раз, когда вы перезапускаете ваше приложение,
 • если вы не будете чистить память, иногда вы можете получить переполнение памяти.
 
@@ -39,12 +39,12 @@ app.post(‘/users’, function (req, res) {
 На практике этот метод выглядит следующим образом:
 
 ```javascript
-const fs = require(‘fs’)
+const fs = require('fs')
 
-app.post(‘/users’, function (req, res) {
+app.post('/users', function (req, res) {
   const user = req.body
-  fs.appendToFile(‘users.txt’, JSON.stringify({name: user.name, age: user.age }), (err) => {  
-    res.send(‘successfully registered’)
+  fs.appendToFile('users.txt', JSON.stringify({name: user.name, age: user.age }), (err) => {  
+    res.send('successfully registered')
   })
 })
  
@@ -54,7 +54,7 @@ app.post(‘/users’, function (req, res) {
 
 К сожалению, хранение пользовательских данных таким образом все еще имеет несколько недостатков:
 
-* Добавление даных работает неплохо, но подумайте об обновлении или удалении.
+* Добавление данных работает неплохо, но подумайте об обновлении или удалении.
 * Если мы работаем с файлами, нет простого решения для параллельные доступа к ним (системные блокировки не позволят вам писать в один файл параллельно).
 * Когда мы пытаемся масштабировать наше приложение, мы не можем разделить файлы между серверами (на самом деле можем, но это далеко за пределами уровня этого руководства).
 
@@ -116,18 +116,18 @@ CREATE TABLE users(
 ```javascript
 ‘use strict’
 
-const pg = require(‘pg’)
-const conString = ‘postgres://username:password@ localhost/node_hero’ // убедитесь, что вы указали данные от вашей базы данных
+const pg = require('pg')
+const conString = 'postgres://username:password@ localhost/node_hero' // убедитесь, что вы указали данные от вашей базы данных
 
 pg.connect(conString, function (err, client, done) {
   if (err) {
-    return console.error(‘error fetching client from pool’, err)
+    return console.error('error fetching client from pool', err)
   }
-  client.query(‘SELECT $1::varchar AS my_ rst_query’, [‘node hero’], function (err, result) {
+  client.query('SELECT $1::varchar AS my_ rst_query', ['node hero'], function (err, result) {
     done()
 
     if (err) {
-      return console.error(‘error happened during query’, err)
+      return console.error('error happened during query', err)
     }
     console.log(result.rows[0])
     process.exit(0)
@@ -137,12 +137,12 @@ pg.connect(conString, function (err, client, done) {
 
 Это был простой пример — "hello world" в PostgreSQL. Обратите внимание, что первым параметром является строка, которая является нашей SQL-командой, второй параметр представляет собой массив значений, которыми мы хотели бы параметризовать наш запрос.
 
-Большой ошибкой с точки зрения безопастности был бы ввод данных, пришедших от пользователя, в том виде, в котором они были переданы. Приведённая выше функция `client.query` защищает вас от SQL-инъекций, которые являются распространённым видом атаки, когда злоумышленник пытается внедрить в запрос произвольный SQL-код. Всегда учитывайте это при создании любого приложения, в котором возможен ввод данных со стороны пользователя. Чтобы узнать больше, ознакомьтесь с нашим [контрольным списком безопасности Node.js-приложений](https://blog.risingstack.com/node-js-security-checklist/).
+Большой ошибкой с точки зрения безопасности был бы ввод данных, пришедших от пользователя, в том виде, в котором они были переданы. Приведённая выше функция `client.query` защищает вас от SQL-инъекций, которые являются распространённым видом атаки, когда злоумышленник пытается внедрить в запрос произвольный SQL-код. Всегда учитывайте это при создании любого приложения, в котором возможен ввод данных со стороны пользователя. Чтобы узнать больше, ознакомьтесь с нашим [контрольным списком безопасности Node.js-приложений](https://blog.risingstack.com/node-js-security-checklist/).
 
 Давайте продолжим наш предыдущий пример.
 
 ```javascript
-app.post(‘/users’, function (req, res, next) {
+app.post('/users', function (req, res, next) {
   const user = req.body
 
   pg.connect(conString, function (err, client, done) {
@@ -150,7 +150,7 @@ app.post(‘/users’, function (req, res, next) {
       // Передача ошибки в обработчик express
       return next(err)
     }
-    client.query(‘INSERT INTO users (name, age) VALUES ($1, $2);’, [user.name, user.age], function (err, result) {
+    client.query('INSERT INTO users (name, age) VALUES ($1, $2);', [user.name, user.age], function (err, result) {
       done() // Этот коллбек сигнализирует драйверу pg, что соединение может быть закрыто или возвращено в пул соединений
       if (err) {
         // Передача ошибки в обработчик express
@@ -165,13 +165,13 @@ app.post(‘/users’, function (req, res, next) {
 Достижение разблокировано: пользователь сохранён в базе данных! :) Теперь давайте попробуем прочитать эти данные. Затем добавим новый роут для поиска пользователей в наше приложение.
 
 ```javascript
-app.get(‘/users’, function (req, res, next {
+app.get('/users', function (req, res, next {
   pg.connect(conString, function (err, client, done) {
     if (err) {
       // Передача ошибки в обработчик express
       return next(err)
     }
-    client.query(‘SELECT name, age FROM users;’, [], function (err, result) {
+    client.query('SELECT name, age FROM users;', [], function (err, result) {
       done()
       if (err) {
         // Передача ошибки в обработчик express
