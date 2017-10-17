@@ -29,15 +29,15 @@ HTTP - это протокол передачи гипертекста. HTTP ф�
 Использование модуля [request-promise](https://www.npmjs.com/package/request-promise) — это очень просто. После его установки из NPM, вам нужно только подключить его к программе:
 
 ```javascript
-const request = require(‘request-promise’)
+const request = require('request-promise')
 ```
 
 Отправка GET-запроса:
 
 ```javascript
 const options = {
-    method: ‘GET’,
-    uri: ‘https://risingstack.com’
+    method: 'GET',
+    uri: 'https://risingstack.com'
 }
 
 request(options)
@@ -59,10 +59,10 @@ POST-запросы работают аналогичным образом:
 
 ```javascript
 const options = {
-    method: ‘POST’,
-    uri: ‘https://risingstack.com/login’,
+    method: 'POST',
+    uri: 'https://risingstack.com/login',
     body: {
-       foo: ‘bar’
+       foo: 'bar'
     },
     json: true
     // Тело запроса приводится к формату JSON автоматически
@@ -81,12 +81,12 @@ request(options)
 
 ```javascript
 const options = {
-    method: ‘GET’,
-    uri: ‘https://risingstack.com’,
+    method: 'GET',
+    uri: 'https://risingstack.com',
     qs: {
         limit: 10,
         skip: 20,
-        sort: ‘asc’
+        sort: 'asc'
     }
 }
 ```
@@ -95,58 +95,58 @@ const options = {
 
 ```javascript
 const options = {
-    method: ‘GET’,
-    uri: ‘https://risingstack.com’,
+    method: 'GET',
+    uri: 'https://risingstack.com',
     headers: {
-        ‘User-Agent’: ‘Request-Promise’,
-        ‘Authorization’: ‘Basic QWxhZGRpbjpPcGVuU2VzYW1l’
+        'User-Agent': 'Request-Promise',
+        'Authorization': 'Basic QWxhZGRpbjpPcGVuU2VzYW1l'
     }
 }
 ```
 
 ## Обработка ошибок
 
-Обработка ошибок - это неотъемлемая часть запросов на внешние API, поскольку мы никогда не можем быть уверены в том, что с ними произойдет. Помимо наших ошибок клиента сервер может ответить с ошибкой или просто отправить данные в неправильном или непоследовательном формате. Помните об этом, когда вы пытаетесь обработать ответ. Кроме того, использование `catch` для каждого запроса - хороший способ избежать сбоя на нашем серверe по вине внешнего сервиса.
+Обработка ошибок - это неотъемлемая часть запросов на внешние API, поскольку мы никогда не можем быть уверены в том, что с ними произойдет. Помимо наших ошибок клиента сервер может ответить с ошибкой или просто отправить данные в неправильном или непоследовательном формате. Помните об этом, когда вы пытаетесь обработать ответ. Кроме того, использование `catch` для каждого запроса - хороший способ избежать сбоя на нашем сервере по вине внешнего сервиса.
 
 ## Объединяем всё вместе
 
-Поскольку вы уже узнали, как развернуть HTTP-сервер на Node.js, как отрендерить HTML-страницы и как получить данные из внешних API, пришло время собрать эти знания вместе!
+Поскольку вы уже узнали, как развернуть HTTP-сервер на Node.js, как отрисовать HTML и как получить данные из внешних API, пришло время собрать эти знания вместе!
 
 В этом примере мы собираемся создать небольшое приложение на Express, которое может отображать текущие погодные условия на основе названий городов.
 
 (Чтобы получить ключ для API AccuWeather, посетите их [сайт для разработчиков](http://apidev.accuweather.com/developers/samples))
 
 ```javascript
-const express = require(‘express’)
-const rp = require(‘request-promise’)
-const exphbs = require(‘express-handlebars’)
+const express = require('express')
+const rp = require('request-promise')
+const exphbs = require('express-handlebars')
 
 const app = express()
 
-app.engine(‘.hbs’, exphbs({
-    defaultLayout: ‘main’,
-    extname: ‘.hbs’,
-    layoutsDir: path.join(__dirname, ‘views/layouts’)
+app.engine('.hbs', exphbs({
+    defaultLayout: 'main',
+    extname: '.hbs',
+    layoutsDir: path.join(__dirname, 'views/layouts')
 }))
-app.set(‘view engine’, ‘.hbs’)
-app.set(‘views’, path.join(__dirname, ‘views’))
+app.set('view engine', '.hbs')
+app.set('views', path.join(__dirname, 'views'))
 
-app.get(‘/:city’, (req, res) => {
+app.get('/:city', (req, res) => {
     rp({
-        uri: ‘http://apidev.accuweather.com/locations/v1/ search’,
+        uri: 'http://apidev.accuweather.com/locations/v1/ search',
         qs: {
             q: req.params.city,
-            apiKey: ‘api-key’
+            apiKey: 'api-key'
                 // Используйте ваш ключ для accuweather API
         },
         json: true
     })
     .then((data) => {
-        res.render(‘index’, data)
+        res.render('index', data)
     })
     .catch((err) => {
         console.log(err)
-        res.render(‘error’)
+        res.render('error')
     })
 })
 
