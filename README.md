@@ -1,17 +1,19 @@
-# node-hero
+# Node Hero
+## Node.js Tutorial Translations
 
 Перевод книги Node Hero от RisingStack https://risingstack.com/resources/node-hero
 
-1. [НАЧАЛО РАБОТЫ С NODE.JS](chapter1/README.md)
-2. [ИСПОЛЬЗОВАНИЕ NPM](chapter2/README.md)
-3. [ПОНИМАНИЕ АСИНХРОННОГО ПРОГРАММИРОВАНИЯ](chapter3/README.md)
-4. [ВАШ ПЕРВЫЙ СЕРВЕР НА NODE.JS](chapter4/README.md)
-5. [РАБОТА С БАЗАМИ ДАННЫХ](chapter5/README.md)
-6. [МОДУЛЬ REQUEST](chapter6/README.md)
-7. [ФАЙЛОВАЯ СТРУКТУРА ПРОЕКТА](chapter7/README.md)
-8. [АУТЕНТИФИКАЦИЯ В NODE.JS С ИСПОЛЬЗОВАНИЕМ PASSPORT.JS](chapter8/README.md)
-9. [МОДУЛЬНОЕ ТЕСТИРОВАНИЕ](chapter9/README.md)
-10. [ОТЛАДКА](chapter10/README.md)
-11. [БЕЗОПАСНОСТЬ](chapter11/README.md)
-12. [ДЕПЛОЙ ВАШЕГО ПРИЛОЖЕНИЯ](chapter12/README.md)
-13. [МОНИТОРИНГ NODE.JS-ПРИЛОЖЕНИЙ](chapter13/README.md)
+1. [НАЧАЛО РАБОТЫ С NODE.JS](https://blog.risingstack.com/nachalo-raboty-s-node-js/)
+2. [ИСПОЛЬЗОВАНИЕ NPM](https://blog.risingstack.com/ispolzovaniie-npm/)
+3. [ПОНИМАНИЕ АСИНХРОННОГО ПРОГРАММИРОВАНИЯ](https://blog.risingstack.com/ponimanie-asinhronnogo-programmirovaniya/)
+4. [ВАШ ПЕРВЫЙ СЕРВЕР НА NODE.JS](https://blog.risingstack.com/vash-pervyj-server-na-nodejs/)
+5. [РАБОТА С БАЗАМИ ДАННЫХ](https://blog.risingstack.com/rabota-s-bazami-dannyh/)
+6. [МОДУЛЬ REQUEST](https://blog.risingstack.com/modul-request/)
+7. [ФАЙЛОВАЯ СТРУКТУРА ПРОЕКТА](https://blog.risingstack.com/fajlovaya-struktura-proekta/)
+8. [АУТЕНТИФИКАЦИЯ В NODE.JS С ИСПОЛЬЗОВАНИЕМ PASSPORT.JS](https://blog.risingstack.com/autentifikaciya-v-nodejs-s-ispolzovaniem-passportjs/)
+9. [МОДУЛЬНОЕ ТЕСТИРОВАНИЕ](https://blog.risingstack.com/modulnoe-testirovanie/)
+10. [ОТЛАДКА](https://blog.risingstack.com/otladka/)
+11. [БЕЗОПАСНОСТЬ](https://blog.risingstack.com/bezopasnost/)
+12. [ДЕПЛОЙ ВАШЕГО ПРИЛОЖЕНИЯ](https://blog.risingstack.com/deploy-vashego-prilozheniya/)
+13. [МОНИТОРИНГ NODE.JS-ПРИЛОЖЕНИЙ](https://blog.risingstack.com/monitoring-nodejs-prilozhenij/)
+
